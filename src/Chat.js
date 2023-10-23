@@ -26,6 +26,9 @@ function Chat({ socket, username, room }) {
             setMessageList((list) => [...list, data])
             console.log('data :>> ', data);
         })
+        // return ()=>{
+        //     socket.removeListener("receive_message")
+        // }
 
     }, [socket])
 
