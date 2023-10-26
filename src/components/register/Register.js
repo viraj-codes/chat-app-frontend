@@ -24,10 +24,13 @@ function Register(props) {
   const sendDetails = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/users/register",
+        "http://localhost:3001/users/register",
         registerUser
       );
-      console.log(response.data);
+      console.log("response",response.data);
+      if (!response.data.error) {
+        props.history.push("/");
+      }
     } catch (err) {
       console.log(err);
     }

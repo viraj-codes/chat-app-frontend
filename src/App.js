@@ -8,6 +8,7 @@ import Register from "./components/register/Register";
 import './App.css';
 import io from 'socket.io-client';
 import Chat from './Chat';
+import Home from './components/Home';
 
 const socket = io.connect("http://localhost:3001");
 
@@ -47,6 +48,12 @@ function App() {
             <Route exact path="/register">
               <Register />
             </Route>
+
+            {token && (
+              <Route exact path="/home">
+                <Home />
+              </Route>
+            )}
             <Route path="*" component={PageNotFound} />
           </Switch>
         </ErrorBoundary>

@@ -27,7 +27,6 @@ function Login(props) {
         "http://localhost:3001/users/login",
         userlogin
       );
-      console.log(response);
       console.log( "responseData",response.data);
       const token = response.data.data.token;
       
