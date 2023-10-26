@@ -40,10 +40,11 @@ function Register(props) {
   };
 
   return (
-    <div className="container-fluid bg" style={{ marginTop: "-49px" }}>
+    <div className="container-fluid bg">
       <div className="row">
         <div className="col-lg-4 col-md-2 col-sm-12"></div>
-        <div className="col-lg-4 col-md-8 col-sm-12">
+        <div className="col-lg-4 col-md-8 col-sm-12" style={{padding:'40px',backgroundColor:'floralwhite',}}>
+        <h1 style={{textAlign:'center',fontSize:'60Px'}}>Register</h1>
           <form className="form-container">
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
