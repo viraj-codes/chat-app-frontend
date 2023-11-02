@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ErrorBoundary from "./components/error-boundary/ErrorBoundary";
@@ -9,6 +9,8 @@ import './App.css';
 import io from 'socket.io-client';
 import Chat from './Chat';
 import Home from './components/Home';
+
+import Navbar from './components/navbar/Navbar';
 
 const socket = io.connect("http://localhost:3001");
 
@@ -26,6 +28,13 @@ function App() {
   //   }
   // }
 
+  useEffect(() => {
+    let t = localStorage.getItem("loginToken");
+    console.log('t :>> ', t);
+    if (t) settoken(t)
+  }, [])
+
+
   return (
     // <div className="App">
     //   {!showChat ? (
@@ -42,7 +51,10 @@ function App() {
       <div className="App">
         <ErrorBoundary>
           <Switch>
-          <Route exact path="/">
+            <Route exact path="/">
+              {token ? <>  <Navbar /> <Home /></> : <Login settoken={settoken} />}
+            </Route>
+            <Route exact path="/login">
               <Login settoken={settoken} />
             </Route>
             <Route exact path="/register">
@@ -51,6 +63,7 @@ function App() {
 
             {token && (
               <Route exact path="/home">
+                <Navbar />
                 <Home />
               </Route>
             )}

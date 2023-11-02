@@ -29,9 +29,12 @@ function Login(props) {
       );
       console.log( "responseData",response.data);
       const token = response.data.data.token;
+      const tokenId = response.data.data.payload._id;
       
       if (!response.data.error) {
         localStorage.setItem("loginToken",token)
+        localStorage.setItem("tokenId",tokenId)
+
         props.settoken(token)
         props.history.push("/home");
       }
@@ -41,7 +44,7 @@ function Login(props) {
   };
 
   return (
-    <div className="container-fluid bg">
+    <div className="container-fluid bg" style={{marginTop:'5%'}}>
       <div className="row">
         <div className="col-lg-4 col-md-2 col-sm-12"></div>
         <div className="col-lg-4 col-md-8 col-sm-12" style={{padding:'40px',backgroundColor:'floralwhite',}}>

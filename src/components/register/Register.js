@@ -43,7 +43,7 @@ function Register(props) {
   };
 
   return (
-    <div className="container-fluid bg">
+    <div className="container-fluid bg" style={{marginTop:'5%'}}>
       <div className="row">
         <div className="col-lg-4 col-md-2 col-sm-12"></div>
         <div className="col-lg-4 col-md-8 col-sm-12" style={{padding:'40px',backgroundColor:'floralwhite',}}>
